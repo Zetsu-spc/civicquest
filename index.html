@@ -1,25 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 26.2.3.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
-		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;CivicQuest: The Community Challenge&lt;/title&gt;
-&lt;style&gt;
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Nunito:wght@400;600;700;800&amp;display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivicQuest: The Community Challenge</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
 
   :root {
     --primary: #1a3c5e;
@@ -479,124 +465,121 @@
     .hud { gap: 6px; }
     .hud-item { padding: 4px 10px; font-size: .82rem; }
   }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;bg-shapes&quot;&gt;
-  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
+</style>
+</head>
+<body>
+<div class="bg-shapes">
+  <span></span><span></span><span></span><span></span>
+</div>
 
-&lt;div id=&quot;app&quot;&gt;
+<div id="app">
 
-  &lt;!-- ══════════════ TITLE SCREEN ══════════════ --&gt;
-  &lt;div id=&quot;screen-title&quot; class=&quot;screen active&quot;&gt;
-    &lt;div class=&quot;title-badge&quot;&gt;🏛️ CivicQuest&lt;/div&gt;
-    &lt;p class=&quot;title-sub&quot;&gt;The Community Challenge&lt;/p&gt;
+  <!-- ══════════════ TITLE SCREEN ══════════════ -->
+  <div id="screen-title" class="screen active">
+    <div class="title-badge">🏛️ CivicQuest</div>
+    <p class="title-sub">The Community Challenge</p>
 
-    &lt;div class=&quot;title-card&quot;&gt;
-      &lt;h3&gt;📚 Learning Objectives&lt;/h3&gt;
-      &lt;ul&gt;
-        &lt;li&gt;Identify and perform civic responsibilities and actions&lt;/li&gt;
-        &lt;li&gt;Classify events by historical period&lt;/li&gt;
-        &lt;li&gt;Recognize geographic features and Philippine regions&lt;/li&gt;
-        &lt;li&gt;Make informed decisions about community issues&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
+    <div class="title-card">
+      <h3>📚 Learning Objectives</h3>
+      <ul>
+        <li>Identify and perform civic responsibilities and actions</li>
+        <li>Classify events by historical period</li>
+        <li>Recognize geographic features and Philippine regions</li>
+        <li>Make informed decisions about community issues</li>
+      </ul>
+    </div>
 
-    &lt;div class=&quot;title-card&quot;&gt;
-      &lt;h3&gt;🎮 How to Play&lt;/h3&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;strong&gt;3 Levels&lt;/strong&gt; — Civics, History, and Geography&lt;/li&gt;
-        &lt;li&gt;Choose the best answer or drag items to the right category&lt;/li&gt;
-        &lt;li&gt;Earn &lt;strong&gt;+10 points&lt;/strong&gt; per correct answer&lt;/li&gt;
-        &lt;li&gt;You have &lt;strong&gt;3 lives ❤️&lt;/strong&gt; — don't lose them all!&lt;/li&gt;
-        &lt;li&gt;Think carefully — your community needs you!&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
+    <div class="title-card">
+      <h3>🎮 How to Play</h3>
+      <ul>
+        <li><strong>3 Levels</strong> — Civics, History, and Geography</li>
+        <li>Choose the best answer or drag items to the right category</li>
+        <li>Earn <strong>+10 points</strong> per correct answer</li>
+        <li>You have <strong>3 lives ❤️</strong> — don't lose them all!</li>
+        <li>Think carefully — your community needs you!</li>
+      </ul>
+    </div>
 
-    &lt;div class=&quot;icon-row&quot;&gt;
-      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;⏱️&lt;/span&gt; Timer per question&lt;/div&gt;
-      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;❤️&lt;/span&gt; 3 Lives&lt;/div&gt;
-      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;🏆&lt;/span&gt; Score &amp; Grade&lt;/div&gt;
-    &lt;/div&gt;
+    <div class="icon-row">
+      <div class="icon-pill"><span>⏱️</span> Timer per question</div>
+      <div class="icon-pill"><span>❤️</span> 3 Lives</div>
+      <div class="icon-pill"><span>🏆</span> Score & Grade</div>
+    </div>
 
-    &lt;button class=&quot;btn btn-primary&quot; onclick=&quot;startGame()&quot;&gt;🚀 Start the Quest!&lt;/button&gt;
-  &lt;/div&gt;
+    <button class="btn btn-primary" onclick="startGame()">🚀 Start the Quest!</button>
+  </div>
 
-  &lt;!-- ══════════════ GAME SCREEN ══════════════ --&gt;
-  &lt;div id=&quot;screen-game&quot; class=&quot;screen&quot;&gt;
-    &lt;!-- HUD --&gt;
-    &lt;div class=&quot;hud&quot;&gt;
-      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;🏆&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Score&lt;/div&gt;&lt;div id=&quot;score-val&quot;&gt;0&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;📍&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Level&lt;/div&gt;&lt;div id=&quot;level-val&quot;&gt;1/3&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;⏱️&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Time&lt;/div&gt;&lt;div id=&quot;timer-val&quot;&gt;15&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;hud-item&quot;&gt;
-        &lt;div&gt;&lt;div class=&quot;label&quot;&gt;Lives&lt;/div&gt;
-        &lt;div id=&quot;lives-val&quot;&gt;❤️❤️❤️&lt;/div&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+  <!-- ══════════════ GAME SCREEN ══════════════ -->
+  <div id="screen-game" class="screen">
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-item"><span>🏆</span><div><div class="label">Score</div><div id="score-val">0</div></div></div>
+      <div class="hud-item"><span>❤️</span><div><div class="label">Lives</div><div id="lives-val">❤️❤️❤️</div></div></div>
+      <div class="hud-item"><span>📍</span><div><div class="label">Level</div><div id="level-val">1/3</div></div></div>
+      <div class="hud-item"><span>⏱️</span><div><div class="label">Time</div><div id="timer-val">15</div></div></div>
+    </div>
 
-    &lt;!-- Progress --&gt;
-    &lt;div class=&quot;progress-bar-wrap&quot; style=&quot;width:100%&quot;&gt;
-      &lt;div class=&quot;progress-bar-fill&quot; id=&quot;progress-fill&quot; style=&quot;width:0%&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
+    <!-- Progress -->
+    <div class="progress-bar-wrap" style="width:100%">
+      <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+    </div>
 
-    &lt;!-- Game Content --&gt;
-    &lt;div id=&quot;game-content&quot;&gt;&lt;/div&gt;
+    <!-- Game Content -->
+    <div id="game-content"></div>
 
-    &lt;!-- Feedback --&gt;
-    &lt;div class=&quot;feedback-panel&quot; id=&quot;feedback-panel&quot;&gt;
-      &lt;div class=&quot;fb-icon&quot; id=&quot;fb-icon&quot;&gt;&lt;/div&gt;
-      &lt;div&gt;&lt;div class=&quot;fb-title&quot; id=&quot;fb-title&quot;&gt;&lt;/div&gt;&lt;div class=&quot;fb-text&quot; id=&quot;fb-text&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;/div&gt;
+    <!-- Feedback -->
+    <div class="feedback-panel" id="feedback-panel">
+      <div class="fb-icon" id="fb-icon"></div>
+      <div><div class="fb-title" id="fb-title"></div><div class="fb-text" id="fb-text"></div></div>
+    </div>
 
-    &lt;!-- Next Button --&gt;
-    &lt;button class=&quot;btn btn-blue&quot; id=&quot;btn-next&quot; onclick=&quot;nextQuestion()&quot; style=&quot;display:none; margin-top:8px;&quot;&gt;Next ➡️&lt;/button&gt;
-  &lt;/div&gt;
+    <!-- Next Button -->
+    <button class="btn btn-blue" id="btn-next" onclick="nextQuestion()" style="display:none; margin-top:8px;">Next ➡️</button>
+  </div>
 
-  &lt;!-- ══════════════ END SCREEN ══════════════ --&gt;
-  &lt;div id=&quot;screen-end&quot; class=&quot;screen&quot;&gt;
-    &lt;div class=&quot;medal&quot; id=&quot;end-medal&quot;&gt;🏅&lt;/div&gt;
-    &lt;div class=&quot;score-display&quot;&gt;
-      &lt;div class=&quot;score-label&quot;&gt;Your Final Score&lt;/div&gt;
-      &lt;div class=&quot;score-big&quot; id=&quot;final-score&quot;&gt;0&lt;/div&gt;
-      &lt;div class=&quot;score-label&quot;&gt;out of 100&lt;/div&gt;
-      &lt;div class=&quot;grade-badge&quot; id=&quot;grade-badge&quot;&gt;Grade B&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;color:#fff;font-size:.95rem;font-weight:600;max-width:380px;text-align:center;&quot; id=&quot;end-message&quot;&gt;&lt;/div&gt;
-    &lt;button class=&quot;btn btn-primary&quot; onclick=&quot;goReflect()&quot;&gt;💭 Reflect on Your Learning&lt;/button&gt;
-    &lt;button class=&quot;btn btn-white&quot; onclick=&quot;restartGame()&quot;&gt;🔄 Play Again&lt;/button&gt;
-  &lt;/div&gt;
+  <!-- ══════════════ END SCREEN ══════════════ -->
+  <div id="screen-end" class="screen">
+    <div class="medal" id="end-medal">🏅</div>
+    <div class="score-display">
+      <div class="score-label">Your Final Score</div>
+      <div class="score-big" id="final-score">0</div>
+      <div class="score-label">out of 100</div>
+      <div class="grade-badge" id="grade-badge">Grade B</div>
+    </div>
+    <div style="color:#fff;font-size:.95rem;font-weight:600;max-width:380px;text-align:center;" id="end-message"></div>
+    <button class="btn btn-primary" onclick="goReflect()">💭 Reflect on Your Learning</button>
+    <button class="btn btn-white" onclick="restartGame()">🔄 Play Again</button>
+  </div>
 
-  &lt;!-- ══════════════ REFLECTION SCREEN ══════════════ --&gt;
-  &lt;div id=&quot;screen-reflect&quot; class=&quot;screen&quot;&gt;
-    &lt;div class=&quot;reflect-card&quot;&gt;
-      &lt;h2&gt;💭 Reflection Corner&lt;/h2&gt;
-      &lt;p class=&quot;reflect-q&quot;&gt;Great job completing CivicQuest! Now take a moment to think deeply:&lt;/p&gt;
-      &lt;p class=&quot;reflect-q&quot; style=&quot;font-weight:800;color:var(--primary)&quot;&gt;
-        &quot;In your own community, what is ONE civic action you can personally take right now to make it better — and WHY does it matter?&quot;
-      &lt;/p&gt;
-      &lt;textarea class=&quot;reflect-textarea&quot; id=&quot;reflect-input&quot; placeholder=&quot;Write your reflection here... (minimum 2 sentences)&quot;&gt;&lt;/textarea&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;reflect-card&quot; style=&quot;background:var(--light)&quot;&gt;
-      &lt;h2 style=&quot;font-size:1rem;&quot;&gt;🎓 Key Takeaways&lt;/h2&gt;
-      &lt;p style=&quot;font-size:.9rem;color:#444;line-height:1.6;margin-top:8px;&quot;&gt;
-        &lt;strong&gt;Good citizens&lt;/strong&gt; don't just know their rights — they act on their responsibilities. 
+  <!-- ══════════════ REFLECTION SCREEN ══════════════ -->
+  <div id="screen-reflect" class="screen">
+    <div class="reflect-card">
+      <h2>💭 Reflection Corner</h2>
+      <p class="reflect-q">Great job completing CivicQuest! Now take a moment to think deeply:</p>
+      <p class="reflect-q" style="font-weight:800;color:var(--primary)">
+        "In your own community, what is ONE civic action you can personally take right now to make it better — and WHY does it matter?"
+      </p>
+      <textarea class="reflect-textarea" id="reflect-input" placeholder="Write your reflection here... (minimum 2 sentences)"></textarea>
+    </div>
+    <div class="reflect-card" style="background:var(--light)">
+      <h2 style="font-size:1rem;">🎓 Key Takeaways</h2>
+      <p style="font-size:.9rem;color:#444;line-height:1.6;margin-top:8px;">
+        <strong>Good citizens</strong> don't just know their rights — they act on their responsibilities. 
         From voting to volunteering, every civic action strengthens our communities. 
         History teaches us how decisions shaped the nation, and geography reminds us that our location connects us to larger stories.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div style=&quot;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;&quot;&gt;
-      &lt;button class=&quot;btn btn-success&quot; onclick=&quot;submitReflection()&quot;&gt;✅ Submit Reflection&lt;/button&gt;
-      &lt;button class=&quot;btn btn-white&quot; onclick=&quot;restartGame()&quot;&gt;🔄 Play Again&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+      </p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <button class="btn btn-success" onclick="submitReflection()">✅ Submit Reflection</button>
+      <button class="btn btn-white" onclick="restartGame()">🔄 Play Again</button>
+    </div>
+  </div>
 
-&lt;/div&gt;&lt;!-- end #app --&gt;
+</div><!-- end #app -->
 
-&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;
+<div id="toast"></div>
 
-&lt;script&gt;
+<script>
 // ════════════════════════════════════════
 // GAME DATA
 // ════════════════════════════════════════
@@ -652,7 +635,7 @@ const LEVELS = [
       }
     ]
   },
-  // ── LEVEL 2: HISTORY DRAG &amp; DROP ──────────────────────────────────
+  // ── LEVEL 2: HISTORY DRAG & DROP ──────────────────────────────────
   {
     type: 'drag',
     levelTitle: 'Level 2: Philippine History Sort',
@@ -717,7 +700,7 @@ function updateHUD() {
 // SCREEN CONTROL
 // ════════════════════════════════════════
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
@@ -757,18 +740,18 @@ function renderMC() {
   const lvl = LEVELS[currentLevel];
   const q = lvl.questions[currentQuestion];
   const html = `
-    &lt;div class=&quot;game-card&quot;&gt;
-      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}&lt;/div&gt;
-      &lt;span class=&quot;scenario-emoji&quot;&gt;${q.emoji}&lt;/span&gt;
-      &lt;div class=&quot;scenario-text&quot;&gt;${q.scenario}&lt;/div&gt;
-      &lt;div class=&quot;choices&quot; id=&quot;choices&quot;&gt;
-        ${q.choices.map((c,i) =&gt; `
-          &lt;button class=&quot;choice-btn&quot; onclick=&quot;answerMC(${i})&quot;&gt;
-            &lt;span class=&quot;choice-num&quot;&gt;${['A','B','C','D'][i]}&lt;/span&gt;
+    <div class="game-card">
+      <div class="scenario-label">${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}</div>
+      <span class="scenario-emoji">${q.emoji}</span>
+      <div class="scenario-text">${q.scenario}</div>
+      <div class="choices" id="choices">
+        ${q.choices.map((c,i) => `
+          <button class="choice-btn" onclick="answerMC(${i})">
+            <span class="choice-num">${['A','B','C','D'][i]}</span>
             ${c.text}
-          &lt;/button&gt;`).join('')}
-      &lt;/div&gt;
-    &lt;/div&gt;`;
+          </button>`).join('')}
+      </div>
+    </div>`;
   document.getElementById('game-content').innerHTML = html;
   startTimer(15);
 }
@@ -777,7 +760,7 @@ function answerMC(idx) {
   clearTimer();
   const q = LEVELS[currentLevel].questions[currentQuestion];
   const buttons = document.querySelectorAll('.choice-btn');
-  buttons.forEach(b =&gt; b.classList.add('disabled'));
+  buttons.forEach(b => b.classList.add('disabled'));
 
   if (q.choices[idx].correct) {
     buttons[idx].classList.add('correct');
@@ -788,9 +771,9 @@ function answerMC(idx) {
     buttons[idx].classList.add('wrong');
     lives--; updateHUD();
     // show correct answer
-    q.choices.forEach((c,i) =&gt; { if(c.correct) buttons[i].classList.add('correct'); });
+    q.choices.forEach((c,i) => { if(c.correct) buttons[i].classList.add('correct'); });
     showFeedback(false, '❌ Not quite!', q.feedback.wrong);
-    if (lives &lt;= 0) { setTimeout(()=&gt;endGame(), 2000); return; }
+    if (lives <= 0) { setTimeout(()=>endGame(), 2000); return; }
   }
   document.getElementById('btn-next').style.display = 'inline-flex';
 }
@@ -801,11 +784,11 @@ function nextQuestion() {
   const lvl = LEVELS[currentLevel];
 
   if (lvl.type === 'mc') {
-    if (currentQuestion + 1 &lt; lvl.questions.length) {
+    if (currentQuestion + 1 < lvl.questions.length) {
       currentQuestion++; renderMC();
     } else { advanceLevel(); }
   } else if (lvl.type === 'map') {
-    if (currentQuestion + 1 &lt; lvl.questions.length) {
+    if (currentQuestion + 1 < lvl.questions.length) {
       currentQuestion++; renderMapQuestion();
     } else { advanceLevel(); }
   } else { advanceLevel(); }
@@ -813,39 +796,39 @@ function nextQuestion() {
 
 function advanceLevel() {
   currentLevel++;
-  if (currentLevel &gt;= LEVELS.length) { endGame(); return; }
+  if (currentLevel >= LEVELS.length) { endGame(); return; }
   currentQuestion = 0;
   showToast(`🎉 Level ${currentLevel} Complete! Moving on...`);
-  setTimeout(() =&gt; renderLevel(), 1200);
+  setTimeout(() => renderLevel(), 1200);
 }
 
 // ── DRAG AND DROP ──────────────────────
 function renderDrag() {
   const lvl = LEVELS[currentLevel];
   dragAnswers = {};
-  lvl.zones.forEach(z =&gt; dragAnswers[z.id] = []);
+  lvl.zones.forEach(z => dragAnswers[z.id] = []);
 
   const html = `
-    &lt;div class=&quot;game-card&quot;&gt;
-      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle}&lt;/div&gt;
-      &lt;div class=&quot;scenario-text&quot; style=&quot;text-align:center&quot;&gt;${lvl.question}&lt;/div&gt;
-      &lt;p class=&quot;drag-instructions&quot;&gt;Drag items from the bank below into the correct category:&lt;/p&gt;
-      &lt;div class=&quot;drag-area&quot; id=&quot;drag-bank&quot;&gt;
-        ${lvl.items.map(item =&gt; `
-          &lt;div class=&quot;drag-item&quot; id=&quot;${item.id}&quot; draggable=&quot;true&quot;
-               ondragstart=&quot;dragStart(event,'${item.id}')&quot;
-               ontouchstart=&quot;touchStart(event,'${item.id}')&quot;&gt;${item.text}&lt;/div&gt;`).join('')}
-      &lt;/div&gt;
-      &lt;div class=&quot;drop-zones&quot;&gt;
-        ${lvl.zones.map(z =&gt; `
-          &lt;div class=&quot;drop-zone&quot; id=&quot;zone-${z.id}&quot;
-               ondragover=&quot;event.preventDefault();this.classList.add('drag-over')&quot;
-               ondragleave=&quot;this.classList.remove('drag-over')&quot;
-               ondrop=&quot;dropItem(event,'${z.id}')&quot;&gt;
-            &lt;div class=&quot;drop-zone-label&quot;&gt;${z.label}&lt;/div&gt;
-          &lt;/div&gt;`).join('')}
-      &lt;/div&gt;
-    &lt;/div&gt;`;
+    <div class="game-card">
+      <div class="scenario-label">${lvl.levelEmoji} ${lvl.levelTitle}</div>
+      <div class="scenario-text" style="text-align:center">${lvl.question}</div>
+      <p class="drag-instructions">Drag items from the bank below into the correct category:</p>
+      <div class="drag-area" id="drag-bank">
+        ${lvl.items.map(item => `
+          <div class="drag-item" id="${item.id}" draggable="true"
+               ondragstart="dragStart(event,'${item.id}')"
+               ontouchstart="touchStart(event,'${item.id}')">${item.text}</div>`).join('')}
+      </div>
+      <div class="drop-zones">
+        ${lvl.zones.map(z => `
+          <div class="drop-zone" id="zone-${z.id}"
+               ondragover="event.preventDefault();this.classList.add('drag-over')"
+               ondragleave="this.classList.remove('drag-over')"
+               ondrop="dropItem(event,'${z.id}')">
+            <div class="drop-zone-label">${z.label}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
   document.getElementById('game-content').innerHTML = html;
   document.getElementById('btn-next').style.display = 'none';
   setupTouchDrag();
@@ -871,7 +854,7 @@ function checkDragCompletion() {
   if (bankEl.querySelectorAll('.drag-item').length === 0) {
     // All placed — evaluate
     let correct = 0;
-    lvl.items.forEach(item =&gt; {
+    lvl.items.forEach(item => {
       const el = document.getElementById(item.id);
       const parent = el.parentElement;
       if (parent.id === 'zone-' + item.category) { correct++; el.style.background = '#27ae60'; }
@@ -885,15 +868,15 @@ function checkDragCompletion() {
     } else {
       showFeedback(false, `📊 ${correct}/${lvl.items.length} correct`, 'Red items were in the wrong period. Study the highlighted correct placements!');
     }
-    setTimeout(() =&gt; { document.getElementById('btn-next').style.display = 'inline-flex'; }, 800);
-    if (lives &lt;= 0) setTimeout(()=&gt;endGame(), 2200);
+    setTimeout(() => { document.getElementById('btn-next').style.display = 'inline-flex'; }, 800);
+    if (lives <= 0) setTimeout(()=>endGame(), 2200);
   }
 }
 
 // Touch drag (mobile)
 let touchItemId = null, touchClone = null;
 function setupTouchDrag() {
-  document.querySelectorAll('.drag-item').forEach(item =&gt; {
+  document.querySelectorAll('.drag-item').forEach(item => {
     item.addEventListener('touchstart', touchStart, {passive:false});
     item.addEventListener('touchmove', touchMove, {passive:false});
     item.addEventListener('touchend', touchEnd);
@@ -944,44 +927,44 @@ function renderMap() {
 function renderMapQuestion() {
   const lvl = LEVELS[currentLevel];
   const q = lvl.questions[currentQuestion];
-  const dotsHTML = Object.entries(MAP_DOTS).map(([id, d]) =&gt; `
-    &lt;div class=&quot;map-dot&quot; id=&quot;dot-${id}&quot;
-         style=&quot;left:${d.x};top:${d.y};background:${d.color};transform:translate(-50%,-50%)&quot;
-         onclick=&quot;answerMap('${id}','${q.target}','${currentQuestion}')&quot;&gt;
+  const dotsHTML = Object.entries(MAP_DOTS).map(([id, d]) => `
+    <div class="map-dot" id="dot-${id}"
+         style="left:${d.x};top:${d.y};background:${d.color};transform:translate(-50%,-50%)"
+         onclick="answerMap('${id}','${q.target}','${currentQuestion}')">
       ${d.label}
-    &lt;/div&gt;`).join('');
+    </div>`).join('');
 
   const html = `
-    &lt;div class=&quot;game-card&quot;&gt;
-      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}&lt;/div&gt;
-      &lt;div class=&quot;map-question&quot;&gt;${q.question}&lt;/div&gt;
-      &lt;div class=&quot;map-container&quot;&gt;
-        &lt;!-- Simple SVG Philippines map --&gt;
-        &lt;svg class=&quot;map-svg&quot; viewBox=&quot;0 0 300 450&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
-          &lt;rect width=&quot;300&quot; height=&quot;450&quot; fill=&quot;#6ab4f5&quot;/&gt;
-          &lt;!-- Luzon --&gt;
-          &lt;ellipse cx=&quot;105&quot; cy=&quot;90&quot; rx=&quot;55&quot; ry=&quot;80&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1.5&quot;/&gt;
-          &lt;ellipse cx=&quot;88&quot; cy=&quot;140&quot; rx=&quot;20&quot; ry=&quot;25&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
-          &lt;!-- Palawan --&gt;
-          &lt;ellipse cx=&quot;65&quot; cy=&quot;220&quot; rx=&quot;14&quot; ry=&quot;50&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot; transform=&quot;rotate(-20,65,220)&quot;/&gt;
-          &lt;!-- Visayas islands --&gt;
-          &lt;ellipse cx=&quot;148&quot; cy=&quot;235&quot; rx=&quot;28&quot; ry=&quot;18&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
-          &lt;ellipse cx=&quot;122&quot; cy=&quot;250&quot; rx=&quot;18&quot; ry=&quot;12&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
-          &lt;ellipse cx=&quot;168&quot; cy=&quot;255&quot; rx=&quot;14&quot; ry=&quot;10&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
-          &lt;ellipse cx=&quot;138&quot; cy=&quot;270&quot; rx=&quot;22&quot; ry=&quot;14&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
-          &lt;!-- Mindanao --&gt;
-          &lt;ellipse cx=&quot;170&quot; cy=&quot;355&quot; rx=&quot;65&quot; ry=&quot;60&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1.5&quot;/&gt;
-          &lt;!-- Ocean labels --&gt;
-          &lt;text x=&quot;15&quot; y=&quot;200&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;South&lt;/text&gt;
-          &lt;text x=&quot;15&quot; y=&quot;210&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;China&lt;/text&gt;
-          &lt;text x=&quot;15&quot; y=&quot;220&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Sea&lt;/text&gt;
-          &lt;text x=&quot;240&quot; y=&quot;200&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Pacific&lt;/text&gt;
-          &lt;text x=&quot;237&quot; y=&quot;210&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Ocean&lt;/text&gt;
-        &lt;/svg&gt;
+    <div class="game-card">
+      <div class="scenario-label">${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}</div>
+      <div class="map-question">${q.question}</div>
+      <div class="map-container">
+        <!-- Simple SVG Philippines map -->
+        <svg class="map-svg" viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="450" fill="#6ab4f5"/>
+          <!-- Luzon -->
+          <ellipse cx="105" cy="90" rx="55" ry="80" fill="#5a9e5a" stroke="#4a8e4a" stroke-width="1.5"/>
+          <ellipse cx="88" cy="140" rx="20" ry="25" fill="#5a9e5a" stroke="#4a8e4a" stroke-width="1"/>
+          <!-- Palawan -->
+          <ellipse cx="65" cy="220" rx="14" ry="50" fill="#5a9e5a" stroke="#4a8e4a" stroke-width="1" transform="rotate(-20 65 220)"/>
+          <!-- Visayas islands -->
+          <ellipse cx="148" cy="235" rx="28" ry="18" fill="#68b068" stroke="#4a8e4a" stroke-width="1"/>
+          <ellipse cx="122" cy="250" rx="18" ry="12" fill="#68b068" stroke="#4a8e4a" stroke-width="1"/>
+          <ellipse cx="168" cy="255" rx="14" ry="10" fill="#68b068" stroke="#4a8e4a" stroke-width="1"/>
+          <ellipse cx="138" cy="270" rx="22" ry="14" fill="#68b068" stroke="#4a8e4a" stroke-width="1"/>
+          <!-- Mindanao -->
+          <ellipse cx="170" cy="355" rx="65" ry="60" fill="#5a9e5a" stroke="#4a8e4a" stroke-width="1.5"/>
+          <!-- Ocean labels -->
+          <text x="15" y="200" fill="rgba(255,255,255,.6)" font-size="9" font-family="sans-serif">South</text>
+          <text x="15" y="210" fill="rgba(255,255,255,.6)" font-size="9" font-family="sans-serif">China</text>
+          <text x="15" y="220" fill="rgba(255,255,255,.6)" font-size="9" font-family="sans-serif">Sea</text>
+          <text x="240" y="200" fill="rgba(255,255,255,.6)" font-size="9" font-family="sans-serif">Pacific</text>
+          <text x="237" y="210" fill="rgba(255,255,255,.6)" font-size="9" font-family="sans-serif">Ocean</text>
+        </svg>
         ${dotsHTML}
-      &lt;/div&gt;
-      &lt;p style=&quot;text-align:center;font-size:.82rem;color:#888;font-weight:600;&quot;&gt;👆 Click a dot to answer&lt;/p&gt;
-    &lt;/div&gt;`;
+      </div>
+      <p style="text-align:center;font-size:.82rem;color:#888;font-weight:600;">👆 Click a dot to answer</p>
+    </div>`;
   document.getElementById('game-content').innerHTML = html;
   hideFeedback();
   document.getElementById('btn-next').style.display = 'none';
@@ -990,7 +973,7 @@ function renderMapQuestion() {
 
 function answerMap(clicked, target, qIdx) {
   clearTimer();
-  document.querySelectorAll('.map-dot').forEach(d =&gt; d.style.pointerEvents = 'none');
+  document.querySelectorAll('.map-dot').forEach(d => d.style.pointerEvents = 'none');
   const lvl = LEVELS[currentLevel];
   const q = lvl.questions[qIdx];
   const clickedDot = document.getElementById('dot-' + clicked);
@@ -999,128 +982,106 @@ function answerMap(clicked, target, qIdx) {
     clickedDot.style.border = '3px solid #27ae60';
     clickedDot.style.transform = 'translate(-50%,-50%) scale(1.4)';
     score += 10; updateHUD();
-    showFeedback(true, '🗺️ Correct!', q.feedback.correct);
+    showFeedback(true, '✅ Correct!', q.feedback.correct);
     spawnConfetti();
   } else {
     clickedDot.style.border = '3px solid #e74c3c';
-    clickedDot.style.background = '#e74c3c';
-    lives--; updateHUD();
     const correctDot = document.getElementById('dot-' + target);
-    if (correctDot) { correctDot.style.transform = 'translate(-50%,-50%) scale(1.4)'; correctDot.style.border = '3px solid #27ae60'; }
-    showFeedback(false, '🗺️ Not quite!', q.feedback.wrong);
-    if (lives &lt;= 0) { setTimeout(()=&gt;endGame(), 2200); return; }
+    correctDot.style.border = '3px solid #27ae60';
+    correctDot.style.transform = 'translate(-50%,-50%) scale(1.3)';
+    lives--; updateHUD();
+    showFeedback(false, '❌ Not quite!', q.feedback.wrong);
+    if (lives <= 0) { setTimeout(()=>endGame(), 2000); return; }
   }
   document.getElementById('btn-next').style.display = 'inline-flex';
 }
 
 // ════════════════════════════════════════
-// TIMER
+// TIMER & UTILITIES
 // ════════════════════════════════════════
-function startTimer(sec) {
-  clearTimer(); timeLeft = sec;
-  const el = document.getElementById('timer-val');
-  el.textContent = timeLeft;
-  el.style.color = '#fff';
-  timer = setInterval(() =&gt; {
+function startTimer(seconds) {
+  timeLeft = seconds;
+  document.getElementById('timer-val').textContent = timeLeft;
+  timer = setInterval(() => {
     timeLeft--;
-    el.textContent = timeLeft;
-    if (timeLeft &lt;= 5) el.style.color = '#f5a623';
-    if (timeLeft &lt;= 0) {
-      clearTimer();
-      el.style.color = '#e74c3c';
-      lives--; updateHUD();
-      const lvl = LEVELS[currentLevel];
-      showFeedback(false, '⏰ Time\'s Up!', 'You ran out of time. Think faster next time!');
-      if (lvl.type === 'mc') {
-        document.querySelectorAll('.choice-btn').forEach(b =&gt; b.classList.add('disabled'));
-        const q = lvl.questions[currentQuestion];
-        document.querySelectorAll('.choice-btn').forEach((b,i) =&gt; { if(q.choices[i].correct) b.classList.add('correct'); });
-      }
-      document.getElementById('btn-next').style.display = 'inline-flex';
-      if (lives &lt;= 0) setTimeout(()=&gt;endGame(), 2000);
-    }
+    document.getElementById('timer-val').textContent = timeLeft;
+    if (timeLeft <= 0) { clearTimer(); timeoutQuestion(); }
   }, 1000);
 }
 
-function clearTimer() { if (timer) { clearInterval(timer); timer = null; } }
+function clearTimer() {
+  if (timer) clearInterval(timer);
+}
 
-// ════════════════════════════════════════
-// FEEDBACK
-// ════════════════════════════════════════
-function showFeedback(correct, title, text) {
+function timeoutQuestion() {
+  showToast('⏰ Time\'s up!');
+  lives--;
+  updateHUD();
+  if (lives <= 0) { setTimeout(()=>endGame(), 1500); return; }
+  nextQuestion();
+}
+
+function showFeedback(isCorrect, title, text) {
   const panel = document.getElementById('feedback-panel');
-  panel.className = 'feedback-panel show ' + (correct ? 'correct-fb' : 'wrong-fb');
-  document.getElementById('fb-icon').textContent = correct ? '🎉' : '💡';
+  document.getElementById('fb-icon').textContent = isCorrect ? '✅' : '❌';
   document.getElementById('fb-title').textContent = title;
   document.getElementById('fb-text').textContent = text;
-}
-function hideFeedback() {
-  document.getElementById('feedback-panel').className = 'feedback-panel';
+  panel.className = 'feedback-panel show ' + (isCorrect ? 'correct-fb' : 'wrong-fb');
 }
 
-// ════════════════════════════════════════
-// END GAME
-// ════════════════════════════════════════
+function hideFeedback() {
+  document.getElementById('feedback-panel').classList.remove('show');
+}
+
 function endGame() {
   clearTimer();
-  let grade, medal, msg;
-  const pct = score;
-  if (pct &gt;= 90) { grade='A+'; medal='🥇'; msg='Outstanding! You are a true civic champion!'; }
-  else if(pct &gt;= 80) { grade='A';  medal='🥇'; msg='Excellent! You have strong Social Studies knowledge!'; }
-  else if(pct &gt;= 70) { grade='B';  medal='🥈'; msg='Good job! Keep practicing your civic and history skills!'; }
-  else if(pct &gt;= 60) { grade='C';  medal='🥉'; msg='Fair effort! Review your notes and try again!'; }
-  else               { grade='D';  medal='🏅'; msg='Keep going! Every champion starts somewhere. Try again!'; }
-
-  document.getElementById('final-score').textContent = score;
-  document.getElementById('grade-badge').textContent = 'Grade ' + grade;
-  document.getElementById('end-medal').textContent = medal;
-  document.getElementById('end-message').textContent = msg;
+  const finalScore = Math.round((score / 90) * 100); // 9 questions × 10 pts
+  const grade = finalScore >= 80 ? 'A' : finalScore >= 70 ? 'B' : finalScore >= 60 ? 'C' : 'D';
+  document.getElementById('final-score').textContent = finalScore;
+  document.getElementById('grade-badge').textContent = `Grade ${grade}`;
+  
+  let message = '';
+  if (finalScore >= 80) message = '🌟 Outstanding! You\'re a civic champion!';
+  else if (finalScore >= 70) message = '👏 Great work! You understood most concepts!';
+  else if (finalScore >= 60) message = '📚 Good effort! Keep learning about civics!';
+  else message = '💪 Keep trying! Review the materials and play again!';
+  
+  document.getElementById('end-message').textContent = message;
   showScreen('screen-end');
-  if(pct &gt;= 70) spawnConfetti(40);
 }
 
-function goReflect() { showScreen('screen-reflect'); }
+function goReflect() {
+  showScreen('screen-reflect');
+}
 
 function submitReflection() {
-  const val = document.getElementById('reflect-input').value.trim();
-  if (val.length &lt; 20) { showToast('Please write at least 2 sentences!'); return; }
-  showToast('✅ Reflection submitted! Great thinking, citizen!');
-  setTimeout(() =&gt; {
-    document.getElementById('reflect-input').value = '';
-    showToast('🎓 Well done! Share your reflection with your class.');
-  }, 2000);
+  const text = document.getElementById('reflect-input').value.trim();
+  if (text.split(' ').length < 10) {
+    showToast('✏️ Please write at least 10 words for reflection');
+    return;
+  }
+  showToast('✅ Reflection submitted! Thank you for reflecting!');
+  setTimeout(() => restartGame(), 1500);
 }
 
-// ════════════════════════════════════════
-// UTILS
-// ════════════════════════════════════════
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() =&gt; t.classList.remove('show'), 2500);
-}
-
-function spawnConfetti(n = 20) {
-  const colors = ['#f5a623','#27ae60','#2980b9','#e74c3c','#9b59b6','#1abc9c'];
-  for (let i = 0; i &lt; n; i++) {
-    const el = document.createElement('div');
-    el.className = 'confetti-piece';
-    el.style.cssText = `
-      left:${Math.random()*100}vw;
-      background:${colors[Math.floor(Math.random()*colors.length)]};
-      width:${6+Math.random()*8}px;
-      height:${6+Math.random()*8}px;
-      animation-duration:${1.5+Math.random()*2}s;
-      animation-delay:${Math.random()*.5}s;
-      border-radius:${Math.random() &gt; .5 ? '50%' : '2px'};
-    `;
-    document.body.appendChild(el);
-    el.addEventListener('animationend', () =&gt; el.remove());
+function spawnConfetti() {
+  for (let i = 0; i < 30; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.backgroundColor = ['#f5a623','#27ae60','#2980b9','#e74c3c'][Math.floor(Math.random()*4)];
+    piece.style.animationDelay = Math.random() * 0.3 + 's';
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 2500);
   }
 }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+</script>
 </body>
 </html>
