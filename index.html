@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.3.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;CivicQuest: The Community Challenge&lt;/title&gt;
+&lt;style&gt;
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Nunito:wght@400;600;700;800&amp;display=swap');
+
+  :root {
+    --primary: #1a3c5e;
+    --accent: #f5a623;
+    --green: #27ae60;
+    --red: #e74c3c;
+    --blue: #2980b9;
+    --light: #eaf4fb;
+    --card: #fff;
+    --shadow: 0 4px 18px rgba(26,60,94,0.13);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #1a3c5e 0%, #2c7bb6 60%, #1a7a4a 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── FLOATING BACKGROUND SHAPES ── */
+  .bg-shapes { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .bg-shapes span {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .07;
+    background: #fff;
+    animation: floatShape 10s ease-in-out infinite alternate;
+  }
+  .bg-shapes span:nth-child(1){ width:200px;height:200px;top:10%;left:5%;animation-delay:0s; }
+  .bg-shapes span:nth-child(2){ width:120px;height:120px;top:60%;left:80%;animation-delay:2s; }
+  .bg-shapes span:nth-child(3){ width:80px;height:80px;top:80%;left:20%;animation-delay:4s; }
+  .bg-shapes span:nth-child(4){ width:160px;height:160px;top:30%;left:70%;animation-delay:1s; }
+  @keyframes floatShape { from{transform:translateY(0) scale(1);} to{transform:translateY(-30px) scale(1.1);} }
+
+  /* ── WRAPPER ── */
+  #app {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* ── SCREENS ── */
+  .screen { width: 100%; display: none; animation: fadeIn .5s ease; }
+  .screen.active { display: flex; flex-direction: column; align-items: center; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+  /* ── TITLE SCREEN ── */
+  #screen-title {
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    gap: 20px;
+  }
+  .title-badge {
+    background: var(--accent);
+    color: var(--primary);
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    padding: 10px 36px;
+    border-radius: 60px;
+    box-shadow: 0 8px 30px rgba(245,166,35,.4);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .title-sub {
+    color: #fff;
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    font-weight: 700;
+    opacity: .9;
+  }
+  .title-card {
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255,255,255,.25);
+    border-radius: var(--radius);
+    padding: 22px 28px;
+    color: #fff;
+    max-width: 520px;
+    text-align: left;
+  }
+  .title-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; color: var(--accent); letter-spacing:.5px; }
+  .title-card ul { padding-left: 18px; }
+  .title-card li { margin-bottom: 6px; font-size: .93rem; }
+  .icon-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .icon-pill {
+    background: rgba(255,255,255,.18);
+    color: #fff;
+    border-radius: 40px;
+    padding: 7px 16px;
+    font-size: .85rem;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .icon-pill span { font-size: 1.2rem; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { background: var(--accent); color: var(--primary); box-shadow: 0 4px 14px rgba(245,166,35,.4); }
+  .btn-success { background: var(--green); color: #fff; }
+  .btn-danger  { background: var(--red);   color: #fff; }
+  .btn-blue    { background: var(--blue);  color: #fff; }
+  .btn-white   { background: #fff; color: var(--primary); }
+  .btn-sm { padding: 8px 20px; font-size: .88rem; }
+
+  /* ── HUD (game header) ── */
+  .hud {
+    width: 100%;
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  .hud-item {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.12);
+    border-radius: 40px;
+    padding: 5px 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: .93rem;
+  }
+  .hud-item .label { opacity: .75; font-size: .78rem; font-weight: 600; }
+  #score-val, #lives-val, #level-val, #timer-val { font-size: 1.1rem; }
+  .heart { color: #e74c3c; font-size: 1rem; }
+
+  /* ── GAME CARD ── */
+  .game-card {
+    width: 100%;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+  }
+  .scenario-label {
+    font-size: .78rem;
+    font-weight: 800;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+  .scenario-text {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .scenario-emoji {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 14px;
+    display: block;
+    animation: bounce .8s infinite alternate;
+  }
+  @keyframes bounce { from{transform:translateY(0);} to{transform:translateY(-8px);} }
+
+  /* ── CHOICES ── */
+  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choice-btn {
+    background: var(--light);
+    border: 2.5px solid #d0e8f7;
+    border-radius: 12px;
+    padding: 13px 18px;
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
+    font-size: .97rem;
+    font-weight: 700;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all .18s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .choice-btn:hover { background: #d0e8f7; border-color: var(--blue); transform: translateX(4px); }
+  .choice-btn.correct  { background: #d4f5e2; border-color: var(--green); color: #155a30; pointer-events: none; }
+  .choice-btn.wrong    { background: #fde8e6; border-color: var(--red);   color: #8c1a10; pointer-events: none; }
+  .choice-btn.disabled { pointer-events: none; opacity: .5; }
+  .choice-num {
+    width: 28px; height: 28px; min-width: 28px;
+    border-radius: 50%;
+    background: #bdd9f0;
+    color: var(--primary);
+    font-weight: 800;
+    font-size: .82rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .choice-btn.correct .choice-num { background: var(--green); color: #fff; }
+  .choice-btn.wrong   .choice-num { background: var(--red);   color: #fff; }
+
+  /* ── FEEDBACK PANEL ── */
+  .feedback-panel {
+    width: 100%;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    display: none;
+    animation: popIn .35s cubic-bezier(.175,.885,.32,1.275);
+    align-items: flex-start;
+    gap: 12px;
+  }
+  @keyframes popIn { from{opacity:0;transform:scale(.85);} to{opacity:1;transform:scale(1);} }
+  .feedback-panel.show { display: flex; }
+  .feedback-panel.correct-fb { background: #d4f5e2; border: 2px solid var(--green); }
+  .feedback-panel.wrong-fb   { background: #fde8e6; border: 2px solid var(--red); }
+  .fb-icon { font-size: 2rem; }
+  .fb-title { font-weight: 800; font-size: 1rem; color: var(--primary); margin-bottom: 3px; }
+  .fb-text  { font-size: .88rem; color: #444; line-height: 1.45; }
+
+  /* ── DRAG AND DROP LEVEL ── */
+  .drag-instructions {
+    font-size: .9rem;
+    color: #555;
+    margin-bottom: 14px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .drag-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+    min-height: 60px;
+    padding: 10px;
+    border: 2px dashed #b0d0ea;
+    border-radius: 12px;
+    background: #f0f7fd;
+  }
+  .drag-item {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: grab;
+    transition: transform .15s, box-shadow .15s;
+    user-select: none;
+    box-shadow: 0 3px 8px rgba(26,60,94,.25);
+  }
+  .drag-item:hover { transform: scale(1.05); box-shadow: 0 6px 14px rgba(26,60,94,.3); }
+  .drag-item.dragging { opacity: .5; cursor: grabbing; }
+  .drop-zones { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .drop-zone {
+    flex: 1;
+    min-width: 140px;
+    min-height: 120px;
+    background: #f8f8f8;
+    border: 2.5px dashed #ccc;
+    border-radius: 14px;
+    padding: 10px;
+    transition: border-color .2s, background .2s;
+  }
+  .drop-zone.drag-over { border-color: var(--accent); background: #fff8ee; }
+  .drop-zone-label {
+    font-weight: 800;
+    font-size: .82rem;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .drop-zone .drag-item { margin: 4px auto; display: block; }
+
+  /* ── MAP LEVEL ── */
+  .map-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 16px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #c8e6c9;
+    aspect-ratio: 3/2;
+  }
+  .map-svg { width: 100%; height: 100%; display: block; }
+  .map-dot {
+    position: absolute;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem;
+    font-weight: 800;
+    color: #fff;
+    transition: transform .2s;
+    box-shadow: 0 3px 10px rgba(0,0,0,.3);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .map-dot:hover { transform: scale(1.2); }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,.5);} 50%{box-shadow:0 0 0 10px rgba(245,166,35,0);} }
+  .map-question {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 14px;
+    padding: 12px 16px;
+    background: var(--light);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar-wrap {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,.25);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 10px;
+    transition: width .5s ease;
+  }
+
+  /* ── END SCREEN ── */
+  #screen-end {
+    justify-content: center;
+    min-height: 100vh;
+    gap: 18px;
+    text-align: center;
+  }
+  .medal {
+    font-size: 5rem;
+    animation: spin 1s ease-out;
+  }
+  @keyframes spin { from{transform:rotate(-180deg) scale(.3);} to{transform:rotate(0) scale(1);} }
+  .score-display {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 24px 36px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+  }
+  .score-big { font-family:'Fredoka One',cursive; font-size: 3.5rem; color: var(--primary); }
+  .score-label { color: #888; font-size: .95rem; font-weight: 600; margin-bottom: 12px; }
+  .grade-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    border-radius: 40px;
+    padding: 4px 20px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+
+  /* ── REFLECTION SCREEN ── */
+  #screen-reflect {
+    gap: 18px;
+    width: 100%;
+    padding-top: 20px;
+  }
+  .reflect-card {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: var(--shadow);
+    width: 100%;
+  }
+  .reflect-card h2 { font-size: 1.2rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+  .reflect-q { font-size: .97rem; color: #444; margin-bottom: 14px; line-height: 1.5; }
+  .reflect-textarea {
+    width: 100%;
+    border: 2px solid #d0e8f7;
+    border-radius: 12px;
+    padding: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .93rem;
+    resize: vertical;
+    min-height: 90px;
+    color: var(--primary);
+    transition: border-color .2s;
+  }
+  .reflect-textarea:focus { outline: none; border-color: var(--blue); }
+
+  /* ── TOAST NOTIFICATION ── */
+  #toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    background: var(--primary);
+    color: #fff;
+    border-radius: 40px;
+    padding: 10px 24px;
+    font-weight: 700;
+    font-size: .93rem;
+    z-index: 999;
+    transition: transform .4s cubic-bezier(.175,.885,.32,1.275);
+    box-shadow: 0 6px 20px rgba(0,0,0,.3);
+    pointer-events: none;
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── CONFETTI ── */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    top: -10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 2.5s ease-in forwards;
+  }
+  @keyframes confettiFall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:500px) {
+    .game-card { padding: 18px 14px; }
+    .drop-zones { flex-direction: column; }
+    .hud { gap: 6px; }
+    .hud-item { padding: 4px 10px; font-size: .82rem; }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;bg-shapes&quot;&gt;
+  &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;app&quot;&gt;
+
+  &lt;!-- ══════════════ TITLE SCREEN ══════════════ --&gt;
+  &lt;div id=&quot;screen-title&quot; class=&quot;screen active&quot;&gt;
+    &lt;div class=&quot;title-badge&quot;&gt;🏛️ CivicQuest&lt;/div&gt;
+    &lt;p class=&quot;title-sub&quot;&gt;The Community Challenge&lt;/p&gt;
+
+    &lt;div class=&quot;title-card&quot;&gt;
+      &lt;h3&gt;📚 Learning Objectives&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Identify and perform civic responsibilities and actions&lt;/li&gt;
+        &lt;li&gt;Classify events by historical period&lt;/li&gt;
+        &lt;li&gt;Recognize geographic features and Philippine regions&lt;/li&gt;
+        &lt;li&gt;Make informed decisions about community issues&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;title-card&quot;&gt;
+      &lt;h3&gt;🎮 How to Play&lt;/h3&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;3 Levels&lt;/strong&gt; — Civics, History, and Geography&lt;/li&gt;
+        &lt;li&gt;Choose the best answer or drag items to the right category&lt;/li&gt;
+        &lt;li&gt;Earn &lt;strong&gt;+10 points&lt;/strong&gt; per correct answer&lt;/li&gt;
+        &lt;li&gt;You have &lt;strong&gt;3 lives ❤️&lt;/strong&gt; — don't lose them all!&lt;/li&gt;
+        &lt;li&gt;Think carefully — your community needs you!&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;icon-row&quot;&gt;
+      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;⏱️&lt;/span&gt; Timer per question&lt;/div&gt;
+      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;❤️&lt;/span&gt; 3 Lives&lt;/div&gt;
+      &lt;div class=&quot;icon-pill&quot;&gt;&lt;span&gt;🏆&lt;/span&gt; Score &amp; Grade&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;button class=&quot;btn btn-primary&quot; onclick=&quot;startGame()&quot;&gt;🚀 Start the Quest!&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ══════════════ GAME SCREEN ══════════════ --&gt;
+  &lt;div id=&quot;screen-game&quot; class=&quot;screen&quot;&gt;
+    &lt;!-- HUD --&gt;
+    &lt;div class=&quot;hud&quot;&gt;
+      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;🏆&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Score&lt;/div&gt;&lt;div id=&quot;score-val&quot;&gt;0&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;📍&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Level&lt;/div&gt;&lt;div id=&quot;level-val&quot;&gt;1/3&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;hud-item&quot;&gt;&lt;span&gt;⏱️&lt;/span&gt;&lt;div&gt;&lt;div class=&quot;label&quot;&gt;Time&lt;/div&gt;&lt;div id=&quot;timer-val&quot;&gt;15&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;hud-item&quot;&gt;
+        &lt;div&gt;&lt;div class=&quot;label&quot;&gt;Lives&lt;/div&gt;
+        &lt;div id=&quot;lives-val&quot;&gt;❤️❤️❤️&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Progress --&gt;
+    &lt;div class=&quot;progress-bar-wrap&quot; style=&quot;width:100%&quot;&gt;
+      &lt;div class=&quot;progress-bar-fill&quot; id=&quot;progress-fill&quot; style=&quot;width:0%&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Game Content --&gt;
+    &lt;div id=&quot;game-content&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Feedback --&gt;
+    &lt;div class=&quot;feedback-panel&quot; id=&quot;feedback-panel&quot;&gt;
+      &lt;div class=&quot;fb-icon&quot; id=&quot;fb-icon&quot;&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;div class=&quot;fb-title&quot; id=&quot;fb-title&quot;&gt;&lt;/div&gt;&lt;div class=&quot;fb-text&quot; id=&quot;fb-text&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Next Button --&gt;
+    &lt;button class=&quot;btn btn-blue&quot; id=&quot;btn-next&quot; onclick=&quot;nextQuestion()&quot; style=&quot;display:none; margin-top:8px;&quot;&gt;Next ➡️&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ══════════════ END SCREEN ══════════════ --&gt;
+  &lt;div id=&quot;screen-end&quot; class=&quot;screen&quot;&gt;
+    &lt;div class=&quot;medal&quot; id=&quot;end-medal&quot;&gt;🏅&lt;/div&gt;
+    &lt;div class=&quot;score-display&quot;&gt;
+      &lt;div class=&quot;score-label&quot;&gt;Your Final Score&lt;/div&gt;
+      &lt;div class=&quot;score-big&quot; id=&quot;final-score&quot;&gt;0&lt;/div&gt;
+      &lt;div class=&quot;score-label&quot;&gt;out of 100&lt;/div&gt;
+      &lt;div class=&quot;grade-badge&quot; id=&quot;grade-badge&quot;&gt;Grade B&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;color:#fff;font-size:.95rem;font-weight:600;max-width:380px;text-align:center;&quot; id=&quot;end-message&quot;&gt;&lt;/div&gt;
+    &lt;button class=&quot;btn btn-primary&quot; onclick=&quot;goReflect()&quot;&gt;💭 Reflect on Your Learning&lt;/button&gt;
+    &lt;button class=&quot;btn btn-white&quot; onclick=&quot;restartGame()&quot;&gt;🔄 Play Again&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ══════════════ REFLECTION SCREEN ══════════════ --&gt;
+  &lt;div id=&quot;screen-reflect&quot; class=&quot;screen&quot;&gt;
+    &lt;div class=&quot;reflect-card&quot;&gt;
+      &lt;h2&gt;💭 Reflection Corner&lt;/h2&gt;
+      &lt;p class=&quot;reflect-q&quot;&gt;Great job completing CivicQuest! Now take a moment to think deeply:&lt;/p&gt;
+      &lt;p class=&quot;reflect-q&quot; style=&quot;font-weight:800;color:var(--primary)&quot;&gt;
+        &quot;In your own community, what is ONE civic action you can personally take right now to make it better — and WHY does it matter?&quot;
+      &lt;/p&gt;
+      &lt;textarea class=&quot;reflect-textarea&quot; id=&quot;reflect-input&quot; placeholder=&quot;Write your reflection here... (minimum 2 sentences)&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;reflect-card&quot; style=&quot;background:var(--light)&quot;&gt;
+      &lt;h2 style=&quot;font-size:1rem;&quot;&gt;🎓 Key Takeaways&lt;/h2&gt;
+      &lt;p style=&quot;font-size:.9rem;color:#444;line-height:1.6;margin-top:8px;&quot;&gt;
+        &lt;strong&gt;Good citizens&lt;/strong&gt; don't just know their rights — they act on their responsibilities. 
+        From voting to volunteering, every civic action strengthens our communities. 
+        History teaches us how decisions shaped the nation, and geography reminds us that our location connects us to larger stories.
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;&quot;&gt;
+      &lt;button class=&quot;btn btn-success&quot; onclick=&quot;submitReflection()&quot;&gt;✅ Submit Reflection&lt;/button&gt;
+      &lt;button class=&quot;btn btn-white&quot; onclick=&quot;restartGame()&quot;&gt;🔄 Play Again&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;&lt;!-- end #app --&gt;
+
+&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// ════════════════════════════════════════
+// GAME DATA
+// ════════════════════════════════════════
+
+const LEVELS = [
+  // ── LEVEL 1: CIVICS (Multiple Choice) ──────────────────────────────
+  {
+    type: 'mc',
+    levelTitle: 'Level 1: Civic Action',
+    levelEmoji: '🏛️',
+    questions: [
+      {
+        emoji: '🗳️',
+        scenario: 'Your barangay is holding an election for local officials. You are 18 years old. What is the MOST important civic duty you should perform?',
+        choices: [
+          { text: 'Ignore it — local elections don\'t matter much', correct: false },
+          { text: 'Register and vote for your chosen candidate', correct: true },
+          { text: 'Tell your friends who to vote for without researching', correct: false },
+          { text: 'Wait until national elections instead', correct: false }
+        ],
+        feedback: {
+          correct: '🎉 Excellent! Voting is a fundamental civic right AND responsibility. Local elections directly affect your community\'s roads, health centers, and programs.',
+          wrong: '❌ Voting in all levels of government is your duty as a citizen. Local officials make decisions that affect your daily life!'
+        }
+      },
+      {
+        emoji: '🌳',
+        scenario: 'You notice that a vacant lot in your neighborhood is full of trash and mosquitoes are breeding there. What is the BEST civic action?',
+        choices: [
+          { text: 'Complain to your friends but do nothing', correct: false },
+          { text: 'Organize a community clean-up drive with your barangay', correct: true },
+          { text: 'Move to another neighborhood', correct: false },
+          { text: 'Burn the trash to remove it quickly', correct: false }
+        ],
+        feedback: {
+          correct: '✅ Great civic thinking! Organizing a community action shows active citizenship and protects public health.',
+          wrong: '❌ Good citizens take constructive action. Organizing a clean-up protects your community and demonstrates civic responsibility!'
+        }
+      },
+      {
+        emoji: '📰',
+        scenario: 'You read a social media post claiming a local official is corrupt. You don\'t know if it\'s true. What should a responsible citizen do?',
+        choices: [
+          { text: 'Share it immediately so everyone sees it', correct: false },
+          { text: 'Ignore all news about government', correct: false },
+          { text: 'Verify the information from reliable sources before acting', correct: true },
+          { text: 'Believe it because it\'s on social media', correct: false }
+        ],
+        feedback: {
+          correct: '✅ Brilliant! Critical media literacy is a civic skill. Always verify before you amplify!',
+          wrong: '❌ Responsible citizens verify information before sharing. Spreading fake news harms democracy!'
+        }
+      }
+    ]
+  },
+  // ── LEVEL 2: HISTORY DRAG &amp; DROP ──────────────────────────────────
+  {
+    type: 'drag',
+    levelTitle: 'Level 2: Philippine History Sort',
+    levelEmoji: '📜',
+    question: 'Drag each event to the correct historical period.',
+    items: [
+      { id: 'd1', text: 'Spanish Galleon Trade', category: 'colonial' },
+      { id: 'd2', text: 'EDSA People Power', category: 'modern' },
+      { id: 'd3', text: 'Barangay Communities', category: 'precolonial' },
+      { id: 'd4', text: 'Commonwealth Period', category: 'american' },
+      { id: 'd5', text: 'Katipunan Founded', category: 'colonial' },
+      { id: 'd6', text: 'Marcos Martial Law', category: 'modern' }
+    ],
+    zones: [
+      { id: 'precolonial', label: '🌺 Pre-Colonial' },
+      { id: 'colonial',    label: '⛵ Spanish Period' },
+      { id: 'american',    label: '🦅 American Period' },
+      { id: 'modern',      label: '🇵🇭 Modern Era' }
+    ]
+  },
+  // ── LEVEL 3: GEOGRAPHY MAP ────────────────────────────────────────
+  {
+    type: 'map',
+    levelTitle: 'Level 3: Philippine Geography',
+    levelEmoji: '🗺️',
+    questions: [
+      {
+        question: 'Click on the location of Metro Manila — the National Capital Region (NCR).',
+        target: 'manila',
+        feedback: {
+          correct: '✅ Correct! Metro Manila is located on the island of Luzon and is the political and economic center of the Philippines.',
+          wrong: '❌ Not quite! Metro Manila (NCR) is on the western coast of Luzon, near Manila Bay.'
+        }
+      },
+      {
+        question: 'Which island group contains the Visayas — home to Cebu, Iloilo, and Leyte?',
+        target: 'visayas',
+        feedback: {
+          correct: '✅ Perfect! The Visayas is the central island group of the Philippines, known for its festivals and rich culture.',
+          wrong: '❌ The Visayas is the CENTRAL island group of the Philippines, between Luzon and Mindanao.'
+        }
+      }
+    ]
+  }
+];
+
+// ════════════════════════════════════════
+// GAME STATE
+// ════════════════════════════════════════
+let score = 0, lives = 3, currentLevel = 0, currentQuestion = 0, timer = null, timeLeft = 0;
+let dragAnswers = {}, mapAnswered = [];
+const TOTAL_POINTS = 100;
+
+function updateHUD() {
+  document.getElementById('score-val').textContent = score;
+  document.getElementById('level-val').textContent = `${currentLevel+1}/3`;
+  const hearts = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives);
+  document.getElementById('lives-val').textContent = hearts;
+}
+
+// ════════════════════════════════════════
+// SCREEN CONTROL
+// ════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startGame() {
+  score = 0; lives = 3; currentLevel = 0; currentQuestion = 0;
+  updateHUD(); showScreen('screen-game'); renderLevel();
+}
+
+function restartGame() {
+  clearTimer(); startGame();
+}
+
+// ════════════════════════════════════════
+// LEVEL RENDERER
+// ════════════════════════════════════════
+function renderLevel() {
+  const lvl = LEVELS[currentLevel];
+  document.getElementById('level-val').textContent = `${currentLevel+1}/3`;
+  hideFeedback();
+  document.getElementById('btn-next').style.display = 'none';
+
+  if (lvl.type === 'mc') renderMC();
+  else if (lvl.type === 'drag') renderDrag();
+  else if (lvl.type === 'map') renderMap();
+}
+
+function updateProgress() {
+  const lvl = LEVELS[currentLevel];
+  let total, done;
+  if (lvl.type === 'mc') { total = lvl.questions.length * 3; done = (currentLevel * (LEVELS[0].questions.length)); }
+  let pct = Math.round(((currentLevel) / LEVELS.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+// ── MULTIPLE CHOICE ────────────────────
+function renderMC() {
+  const lvl = LEVELS[currentLevel];
+  const q = lvl.questions[currentQuestion];
+  const html = `
+    &lt;div class=&quot;game-card&quot;&gt;
+      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}&lt;/div&gt;
+      &lt;span class=&quot;scenario-emoji&quot;&gt;${q.emoji}&lt;/span&gt;
+      &lt;div class=&quot;scenario-text&quot;&gt;${q.scenario}&lt;/div&gt;
+      &lt;div class=&quot;choices&quot; id=&quot;choices&quot;&gt;
+        ${q.choices.map((c,i) =&gt; `
+          &lt;button class=&quot;choice-btn&quot; onclick=&quot;answerMC(${i})&quot;&gt;
+            &lt;span class=&quot;choice-num&quot;&gt;${['A','B','C','D'][i]}&lt;/span&gt;
+            ${c.text}
+          &lt;/button&gt;`).join('')}
+      &lt;/div&gt;
+    &lt;/div&gt;`;
+  document.getElementById('game-content').innerHTML = html;
+  startTimer(15);
+}
+
+function answerMC(idx) {
+  clearTimer();
+  const q = LEVELS[currentLevel].questions[currentQuestion];
+  const buttons = document.querySelectorAll('.choice-btn');
+  buttons.forEach(b =&gt; b.classList.add('disabled'));
+
+  if (q.choices[idx].correct) {
+    buttons[idx].classList.add('correct');
+    score += 10; updateHUD();
+    showFeedback(true, '✅ Correct!', q.feedback.correct);
+    spawnConfetti();
+  } else {
+    buttons[idx].classList.add('wrong');
+    lives--; updateHUD();
+    // show correct answer
+    q.choices.forEach((c,i) =&gt; { if(c.correct) buttons[i].classList.add('correct'); });
+    showFeedback(false, '❌ Not quite!', q.feedback.wrong);
+    if (lives &lt;= 0) { setTimeout(()=&gt;endGame(), 2000); return; }
+  }
+  document.getElementById('btn-next').style.display = 'inline-flex';
+}
+
+function nextQuestion() {
+  clearTimer(); hideFeedback();
+  document.getElementById('btn-next').style.display = 'none';
+  const lvl = LEVELS[currentLevel];
+
+  if (lvl.type === 'mc') {
+    if (currentQuestion + 1 &lt; lvl.questions.length) {
+      currentQuestion++; renderMC();
+    } else { advanceLevel(); }
+  } else if (lvl.type === 'map') {
+    if (currentQuestion + 1 &lt; lvl.questions.length) {
+      currentQuestion++; renderMapQuestion();
+    } else { advanceLevel(); }
+  } else { advanceLevel(); }
+}
+
+function advanceLevel() {
+  currentLevel++;
+  if (currentLevel &gt;= LEVELS.length) { endGame(); return; }
+  currentQuestion = 0;
+  showToast(`🎉 Level ${currentLevel} Complete! Moving on...`);
+  setTimeout(() =&gt; renderLevel(), 1200);
+}
+
+// ── DRAG AND DROP ──────────────────────
+function renderDrag() {
+  const lvl = LEVELS[currentLevel];
+  dragAnswers = {};
+  lvl.zones.forEach(z =&gt; dragAnswers[z.id] = []);
+
+  const html = `
+    &lt;div class=&quot;game-card&quot;&gt;
+      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle}&lt;/div&gt;
+      &lt;div class=&quot;scenario-text&quot; style=&quot;text-align:center&quot;&gt;${lvl.question}&lt;/div&gt;
+      &lt;p class=&quot;drag-instructions&quot;&gt;Drag items from the bank below into the correct category:&lt;/p&gt;
+      &lt;div class=&quot;drag-area&quot; id=&quot;drag-bank&quot;&gt;
+        ${lvl.items.map(item =&gt; `
+          &lt;div class=&quot;drag-item&quot; id=&quot;${item.id}&quot; draggable=&quot;true&quot;
+               ondragstart=&quot;dragStart(event,'${item.id}')&quot;
+               ontouchstart=&quot;touchStart(event,'${item.id}')&quot;&gt;${item.text}&lt;/div&gt;`).join('')}
+      &lt;/div&gt;
+      &lt;div class=&quot;drop-zones&quot;&gt;
+        ${lvl.zones.map(z =&gt; `
+          &lt;div class=&quot;drop-zone&quot; id=&quot;zone-${z.id}&quot;
+               ondragover=&quot;event.preventDefault();this.classList.add('drag-over')&quot;
+               ondragleave=&quot;this.classList.remove('drag-over')&quot;
+               ondrop=&quot;dropItem(event,'${z.id}')&quot;&gt;
+            &lt;div class=&quot;drop-zone-label&quot;&gt;${z.label}&lt;/div&gt;
+          &lt;/div&gt;`).join('')}
+      &lt;/div&gt;
+    &lt;/div&gt;`;
+  document.getElementById('game-content').innerHTML = html;
+  document.getElementById('btn-next').style.display = 'none';
+  setupTouchDrag();
+}
+
+let draggedId = null;
+function dragStart(e, id) { draggedId = id; e.dataTransfer.setData('text', id); }
+function dropItem(e, zoneId) {
+  e.preventDefault();
+  const id = draggedId || e.dataTransfer.getData('text');
+  if (!id) return;
+  const el = document.getElementById(id);
+  const zone = document.getElementById('zone-' + zoneId);
+  zone.classList.remove('drag-over');
+  zone.appendChild(el);
+  draggedId = null;
+  checkDragCompletion();
+}
+
+function checkDragCompletion() {
+  const lvl = LEVELS[currentLevel];
+  const bankEl = document.getElementById('drag-bank');
+  if (bankEl.querySelectorAll('.drag-item').length === 0) {
+    // All placed — evaluate
+    let correct = 0;
+    lvl.items.forEach(item =&gt; {
+      const el = document.getElementById(item.id);
+      const parent = el.parentElement;
+      if (parent.id === 'zone-' + item.category) { correct++; el.style.background = '#27ae60'; }
+      else { el.style.background = '#e74c3c'; lives = Math.max(0, lives - 1); updateHUD(); }
+    });
+    score += correct * 10; updateHUD();
+    const pct = Math.round((correct / lvl.items.length) * 100);
+    if (correct === lvl.items.length) {
+      showFeedback(true, `🎉 Perfect! ${correct}/${lvl.items.length} correct!`, 'You correctly sorted all historical events into their periods!');
+      spawnConfetti();
+    } else {
+      showFeedback(false, `📊 ${correct}/${lvl.items.length} correct`, 'Red items were in the wrong period. Study the highlighted correct placements!');
+    }
+    setTimeout(() =&gt; { document.getElementById('btn-next').style.display = 'inline-flex'; }, 800);
+    if (lives &lt;= 0) setTimeout(()=&gt;endGame(), 2200);
+  }
+}
+
+// Touch drag (mobile)
+let touchItemId = null, touchClone = null;
+function setupTouchDrag() {
+  document.querySelectorAll('.drag-item').forEach(item =&gt; {
+    item.addEventListener('touchstart', touchStart, {passive:false});
+    item.addEventListener('touchmove', touchMove, {passive:false});
+    item.addEventListener('touchend', touchEnd);
+  });
+}
+function touchStart(e, id) {
+  e.preventDefault();
+  touchItemId = id || e.currentTarget.id;
+  touchClone = e.currentTarget.cloneNode(true);
+  touchClone.style.cssText = `position:fixed;opacity:.7;pointer-events:none;z-index:9999;border-radius:10px;padding:9px 16px;background:#1a3c5e;color:#fff;font-weight:700;font-size:.88rem;`;
+  document.body.appendChild(touchClone);
+}
+function touchMove(e) {
+  e.preventDefault();
+  if (!touchClone) return;
+  const t = e.touches[0];
+  touchClone.style.left = (t.clientX - 40) + 'px';
+  touchClone.style.top  = (t.clientY - 20) + 'px';
+}
+function touchEnd(e) {
+  if (!touchClone || !touchItemId) return;
+  const t = e.changedTouches[0];
+  touchClone.remove(); touchClone = null;
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  if (!el) return;
+  const zone = el.closest('.drop-zone');
+  if (zone) {
+    const zoneId = zone.id.replace('zone-','');
+    const item = document.getElementById(touchItemId);
+    zone.appendChild(item);
+    checkDragCompletion();
+  }
+  touchItemId = null;
+}
+
+// ── MAP ────────────────────────────────
+const MAP_DOTS = {
+  manila:  { x: '29%', y: '30%', color: '#e74c3c', label:'M' },
+  luzon:   { x: '35%', y: '18%', color: '#2980b9', label:'L' },
+  visayas: { x: '50%', y: '55%', color: '#f39c12', label:'V' },
+  mindanao:{ x: '58%', y: '72%', color: '#27ae60', label:'Mi' }
+};
+
+function renderMap() {
+  currentQuestion = 0; renderMapQuestion();
+}
+
+function renderMapQuestion() {
+  const lvl = LEVELS[currentLevel];
+  const q = lvl.questions[currentQuestion];
+  const dotsHTML = Object.entries(MAP_DOTS).map(([id, d]) =&gt; `
+    &lt;div class=&quot;map-dot&quot; id=&quot;dot-${id}&quot;
+         style=&quot;left:${d.x};top:${d.y};background:${d.color};transform:translate(-50%,-50%)&quot;
+         onclick=&quot;answerMap('${id}','${q.target}','${currentQuestion}')&quot;&gt;
+      ${d.label}
+    &lt;/div&gt;`).join('');
+
+  const html = `
+    &lt;div class=&quot;game-card&quot;&gt;
+      &lt;div class=&quot;scenario-label&quot;&gt;${lvl.levelEmoji} ${lvl.levelTitle} — Question ${currentQuestion+1}/${lvl.questions.length}&lt;/div&gt;
+      &lt;div class=&quot;map-question&quot;&gt;${q.question}&lt;/div&gt;
+      &lt;div class=&quot;map-container&quot;&gt;
+        &lt;!-- Simple SVG Philippines map --&gt;
+        &lt;svg class=&quot;map-svg&quot; viewBox=&quot;0 0 300 450&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+          &lt;rect width=&quot;300&quot; height=&quot;450&quot; fill=&quot;#6ab4f5&quot;/&gt;
+          &lt;!-- Luzon --&gt;
+          &lt;ellipse cx=&quot;105&quot; cy=&quot;90&quot; rx=&quot;55&quot; ry=&quot;80&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1.5&quot;/&gt;
+          &lt;ellipse cx=&quot;88&quot; cy=&quot;140&quot; rx=&quot;20&quot; ry=&quot;25&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
+          &lt;!-- Palawan --&gt;
+          &lt;ellipse cx=&quot;65&quot; cy=&quot;220&quot; rx=&quot;14&quot; ry=&quot;50&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot; transform=&quot;rotate(-20,65,220)&quot;/&gt;
+          &lt;!-- Visayas islands --&gt;
+          &lt;ellipse cx=&quot;148&quot; cy=&quot;235&quot; rx=&quot;28&quot; ry=&quot;18&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
+          &lt;ellipse cx=&quot;122&quot; cy=&quot;250&quot; rx=&quot;18&quot; ry=&quot;12&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
+          &lt;ellipse cx=&quot;168&quot; cy=&quot;255&quot; rx=&quot;14&quot; ry=&quot;10&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
+          &lt;ellipse cx=&quot;138&quot; cy=&quot;270&quot; rx=&quot;22&quot; ry=&quot;14&quot; fill=&quot;#68b068&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1&quot;/&gt;
+          &lt;!-- Mindanao --&gt;
+          &lt;ellipse cx=&quot;170&quot; cy=&quot;355&quot; rx=&quot;65&quot; ry=&quot;60&quot; fill=&quot;#5a9e5a&quot; stroke=&quot;#4a8e4a&quot; stroke-width=&quot;1.5&quot;/&gt;
+          &lt;!-- Ocean labels --&gt;
+          &lt;text x=&quot;15&quot; y=&quot;200&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;South&lt;/text&gt;
+          &lt;text x=&quot;15&quot; y=&quot;210&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;China&lt;/text&gt;
+          &lt;text x=&quot;15&quot; y=&quot;220&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Sea&lt;/text&gt;
+          &lt;text x=&quot;240&quot; y=&quot;200&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Pacific&lt;/text&gt;
+          &lt;text x=&quot;237&quot; y=&quot;210&quot; fill=&quot;rgba(255,255,255,.6)&quot; font-size=&quot;9&quot; font-family=&quot;sans-serif&quot;&gt;Ocean&lt;/text&gt;
+        &lt;/svg&gt;
+        ${dotsHTML}
+      &lt;/div&gt;
+      &lt;p style=&quot;text-align:center;font-size:.82rem;color:#888;font-weight:600;&quot;&gt;👆 Click a dot to answer&lt;/p&gt;
+    &lt;/div&gt;`;
+  document.getElementById('game-content').innerHTML = html;
+  hideFeedback();
+  document.getElementById('btn-next').style.display = 'none';
+  startTimer(20);
+}
+
+function answerMap(clicked, target, qIdx) {
+  clearTimer();
+  document.querySelectorAll('.map-dot').forEach(d =&gt; d.style.pointerEvents = 'none');
+  const lvl = LEVELS[currentLevel];
+  const q = lvl.questions[qIdx];
+  const clickedDot = document.getElementById('dot-' + clicked);
+
+  if (clicked === target) {
+    clickedDot.style.border = '3px solid #27ae60';
+    clickedDot.style.transform = 'translate(-50%,-50%) scale(1.4)';
+    score += 10; updateHUD();
+    showFeedback(true, '🗺️ Correct!', q.feedback.correct);
+    spawnConfetti();
+  } else {
+    clickedDot.style.border = '3px solid #e74c3c';
+    clickedDot.style.background = '#e74c3c';
+    lives--; updateHUD();
+    const correctDot = document.getElementById('dot-' + target);
+    if (correctDot) { correctDot.style.transform = 'translate(-50%,-50%) scale(1.4)'; correctDot.style.border = '3px solid #27ae60'; }
+    showFeedback(false, '🗺️ Not quite!', q.feedback.wrong);
+    if (lives &lt;= 0) { setTimeout(()=&gt;endGame(), 2200); return; }
+  }
+  document.getElementById('btn-next').style.display = 'inline-flex';
+}
+
+// ════════════════════════════════════════
+// TIMER
+// ════════════════════════════════════════
+function startTimer(sec) {
+  clearTimer(); timeLeft = sec;
+  const el = document.getElementById('timer-val');
+  el.textContent = timeLeft;
+  el.style.color = '#fff';
+  timer = setInterval(() =&gt; {
+    timeLeft--;
+    el.textContent = timeLeft;
+    if (timeLeft &lt;= 5) el.style.color = '#f5a623';
+    if (timeLeft &lt;= 0) {
+      clearTimer();
+      el.style.color = '#e74c3c';
+      lives--; updateHUD();
+      const lvl = LEVELS[currentLevel];
+      showFeedback(false, '⏰ Time\'s Up!', 'You ran out of time. Think faster next time!');
+      if (lvl.type === 'mc') {
+        document.querySelectorAll('.choice-btn').forEach(b =&gt; b.classList.add('disabled'));
+        const q = lvl.questions[currentQuestion];
+        document.querySelectorAll('.choice-btn').forEach((b,i) =&gt; { if(q.choices[i].correct) b.classList.add('correct'); });
+      }
+      document.getElementById('btn-next').style.display = 'inline-flex';
+      if (lives &lt;= 0) setTimeout(()=&gt;endGame(), 2000);
+    }
+  }, 1000);
+}
+
+function clearTimer() { if (timer) { clearInterval(timer); timer = null; } }
+
+// ════════════════════════════════════════
+// FEEDBACK
+// ════════════════════════════════════════
+function showFeedback(correct, title, text) {
+  const panel = document.getElementById('feedback-panel');
+  panel.className = 'feedback-panel show ' + (correct ? 'correct-fb' : 'wrong-fb');
+  document.getElementById('fb-icon').textContent = correct ? '🎉' : '💡';
+  document.getElementById('fb-title').textContent = title;
+  document.getElementById('fb-text').textContent = text;
+}
+function hideFeedback() {
+  document.getElementById('feedback-panel').className = 'feedback-panel';
+}
+
+// ════════════════════════════════════════
+// END GAME
+// ════════════════════════════════════════
+function endGame() {
+  clearTimer();
+  let grade, medal, msg;
+  const pct = score;
+  if (pct &gt;= 90) { grade='A+'; medal='🥇'; msg='Outstanding! You are a true civic champion!'; }
+  else if(pct &gt;= 80) { grade='A';  medal='🥇'; msg='Excellent! You have strong Social Studies knowledge!'; }
+  else if(pct &gt;= 70) { grade='B';  medal='🥈'; msg='Good job! Keep practicing your civic and history skills!'; }
+  else if(pct &gt;= 60) { grade='C';  medal='🥉'; msg='Fair effort! Review your notes and try again!'; }
+  else               { grade='D';  medal='🏅'; msg='Keep going! Every champion starts somewhere. Try again!'; }
+
+  document.getElementById('final-score').textContent = score;
+  document.getElementById('grade-badge').textContent = 'Grade ' + grade;
+  document.getElementById('end-medal').textContent = medal;
+  document.getElementById('end-message').textContent = msg;
+  showScreen('screen-end');
+  if(pct &gt;= 70) spawnConfetti(40);
+}
+
+function goReflect() { showScreen('screen-reflect'); }
+
+function submitReflection() {
+  const val = document.getElementById('reflect-input').value.trim();
+  if (val.length &lt; 20) { showToast('Please write at least 2 sentences!'); return; }
+  showToast('✅ Reflection submitted! Great thinking, citizen!');
+  setTimeout(() =&gt; {
+    document.getElementById('reflect-input').value = '';
+    showToast('🎓 Well done! Share your reflection with your class.');
+  }, 2000);
+}
+
+// ════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() =&gt; t.classList.remove('show'), 2500);
+}
+
+function spawnConfetti(n = 20) {
+  const colors = ['#f5a623','#27ae60','#2980b9','#e74c3c','#9b59b6','#1abc9c'];
+  for (let i = 0; i &lt; n; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left:${Math.random()*100}vw;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${6+Math.random()*8}px;
+      height:${6+Math.random()*8}px;
+      animation-duration:${1.5+Math.random()*2}s;
+      animation-delay:${Math.random()*.5}s;
+      border-radius:${Math.random() &gt; .5 ? '50%' : '2px'};
+    `;
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () =&gt; el.remove());
+  }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
